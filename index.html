@@ -6,7 +6,7 @@
     <title>Abdulmalik Alsafadi | Portfolio</title>
     <meta
       name="description"
-      content="Responsive personal portfolio. SWE assignment-1."
+      content="Responsive personal portfolio. SWE assignment-2."
     />
     <link rel="stylesheet" href="css/styles.css" />
     <link rel="icon" href="assets/images/placeholder.png" />
@@ -46,7 +46,6 @@
       <section id="hero" class="hero">
         <h1 id="greeting">Hello.</h1>
       </section>
-
       <section id="about" class="section">
         <h2>About Me</h2>
         <div class="about-grid">
@@ -66,66 +65,24 @@
 
       <section id="projects" class="section">
         <h2>Projects</h2>
-        <div class="cards">
-          <article class="card">
-            <img src="assets/images/hakeem.png" alt="Hakeem app preview" />
-            <h3>Hakeem (startup app)</h3>
-            <p>
-              Recipe and meal-planning app targeting KSA. Flutter front end,
-              Spring Boot API, and planned AI meal suggestions.
-            </p>
-            <p class="lock">🔒 Private access</p>
-          </article>
-          <article class="card">
-            <img
-              src="assets/images/trading-bot.png"
-              alt="Trading bot preview"
-            />
-            <h3>Algorithmic Trading Bot</h3>
-            <p>
-              Java/Spring service with risk controls and basic strategies.
-              Modular design for data ingestion and order routing.
-            </p>
-            <p class="lock">🔒 Private access</p>
-          </article>
-          <article class="card">
-            <img
-              src="assets/images/reservation-system.png"
-              alt="Reservation system (SWE-206 project)"
-            />
-            <h3>Reservation system</h3>
-            <p>
-              A course project focused on requirements engineering and system
-              design. Built with Spring Boot, MySQL, and React to manage
-              facility reservations through a responsive web interface.
-            </p>
-            <a
-              class="link"
-              href="https://github.com/Mlk-KFUPM/ReservationSystem"
-              aria-disabled="true"
-              >Click here to go to the backend repository</a
-            >
-          </article>
-          <article class="card">
-            <img
-              src="assets/images/tournament-management.png"
-              alt="Tournament Management (ICS-321 project)"
-            />
-            <h3>Tournament Management</h3>
-            <p>
-              A database-focused project for managing tournaments. Implemented
-              with PostgreSQL, a Spring Boot backend, and a Flutter front end
-              for cross-platform access.
-            </p>
-            <a
-              class="link"
-              href="https://github.com/Mlk-KFUPM/tournament"
-              aria-disabled="true"
-              >Click here to go to the backend repository</a
-            >
-          </article>
+
+        <div id="project-filters" class="filter-chips">
+          <button class="chip active" data-filter="All" type="button">
+            All
+          </button>
+          <button class="chip" data-filter="Flutter" type="button">
+            Flutter
+          </button>
+          <button class="chip" data-filter="Spring Boot" type="button">
+            Spring Boot
+          </button>
+          <button class="chip" data-filter="Java" type="button">Java</button>
+          <button class="chip" data-filter="React" type="button">React</button>
         </div>
+
+        <div id="project-cards" class="cards"></div>
       </section>
+
       <section id="skills" class="section">
         <h2>Skills</h2>
         <ul class="chips">
@@ -150,7 +107,6 @@
           <li>Web Development</li>
         </ul>
       </section>
-
       <section id="certs" class="section">
         <h2>Certifications</h2>
         <div class="certs">
@@ -173,7 +129,6 @@
               >
             </p>
           </article>
-
           <article class="card cert">
             <div class="cert-head">
               <div>
@@ -191,7 +146,6 @@
               >
             </p>
           </article>
-
           <article class="card cert">
             <div class="cert-head">
               <div>
@@ -214,7 +168,6 @@
           </article>
         </div>
       </section>
-
       <section id="contact" class="section">
         <h2>Contact</h2>
         <form id="contactForm" class="form" novalidate>
@@ -227,6 +180,7 @@
               minlength="2"
               placeholder="Your name"
             />
+            <span class="error-message" aria-live="polite"></span>
           </label>
           <label>
             Email
@@ -236,6 +190,7 @@
               required
               placeholder="you@domain.tld"
             />
+            <span class="error-message" aria-live="polite"></span>
           </label>
           <label>
             Message
@@ -246,13 +201,13 @@
               minlength="10"
               placeholder="How can I help?"
             ></textarea>
+            <span class="error-message" aria-live="polite"></span>
           </label>
           <button class="btn" type="submit">Send</button>
           <p id="formNote" class="note" role="status" hidden>Message sent.</p>
         </form>
       </section>
     </main>
-
     <footer class="site-footer">
       <p>
         &copy; <span id="year"></span> Abdulmalik Alsafadi •

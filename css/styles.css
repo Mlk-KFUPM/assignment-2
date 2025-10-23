@@ -1,3 +1,4 @@
+/* ... all styles down to .chips li are unchanged ... */
 :root {
   --bg: #0b0e14;
   --panel: #121826;
@@ -19,11 +20,12 @@
 * {
   box-sizing: border-box;
 }
-html,
-body {
-  margin: 0;
+html {
+  /* A2: Add smooth scrolling behavior */
+  scroll-behavior: smooth;
 }
 body {
+  margin: 0;
   background: var(--bg);
   color: var(--text);
   font: 16px/1.6 system-ui, Segoe UI, Roboto, Arial;
@@ -57,6 +59,8 @@ button:hover {
   border-radius: 999px;
   padding: 10px 16px;
   font-weight: 600;
+  /* A2: Add transition for hover */
+  transition: all 0.2s ease;
 }
 .btn-ghost {
   background: transparent;
@@ -135,12 +139,22 @@ main {
   display: grid;
   gap: 16px;
   grid-template-columns: repeat(2, 1fr);
+  /* A2: Added to make card heights consistent during filtering */
+  align-items: stretch;
 }
 .card {
   background: var(--panel);
   border: 1px solid #202a3b;
   border-radius: var(--radius);
   padding: 16px;
+  /* A2: Add transitions for hover and fade-in */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: fadeIn 0.5s ease-out forwards;
+}
+/* A2: Add hover animation */
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 .card h3 {
   margin: 0.4em 0;
@@ -176,13 +190,33 @@ textarea {
   width: 100%;
   padding: 10px;
   border-radius: 10px;
-  border: 1px solid var(--muted); /* instead of #27314a */
-  background: var(--panel); /* instead of #0e1729 */
+  border: 1px solid var(--muted); /* Corrected for light mode */
+  background: var(--panel); /* Corrected for light mode */
   color: var(--text);
+  transition: border-color 0.2s, box-shadow 0.2s;
 }
 input:focus,
-textarea:focus input:invalid,
-textarea:invalid .note {
+textarea:focus {
+  outline: none;
+  border-color: var(--brand);
+  box-shadow: 0 0 0 3px rgba(79, 140, 255, 0.3);
+}
+input:invalid,
+textarea:invalid {
+  border-color: #e53e3e;
+}
+input:invalid:focus,
+textarea:invalid:focus {
+  box-shadow: 0 0 0 3px rgba(229, 62, 62, 0.3);
+}
+.error-message {
+  font-size: 0.875rem;
+  color: #e53e3e;
+  font-weight: normal;
+  display: none;
+}
+
+.note {
   margin-top: 10px;
   color: #d1f7ff;
   background: #0b3342;
@@ -199,17 +233,52 @@ textarea:invalid .note {
   padding: 0;
   list-style: none;
 }
-/* Skills chips */
 .chips li {
   padding: 6px 10px;
-  border: 1px solid var(--muted); /* instead of #27314a */
-  background: var(--panel); /* instead of #0e1729 */
+  border: 1px solid var(--muted); /* Corrected for light mode */
+  background: var(--panel); /* Corrected for light mode */
   color: var(--text);
   border-radius: 999px;
 }
 
+/* *** NEW: Filter Chip Styles ***
+*/
+.filter-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px; /* Add space between filters and cards */
+}
+/* Style for filter buttons, inheriting from .chips li */
+.filter-chips .chip {
+  padding: 6px 12px;
+  border: 1px solid var(--muted);
+  background: var(--panel);
+  color: var(--text);
+  border-radius: 999px;
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+/* Hover state for filter buttons */
+.filter-chips .chip:hover {
+  background: var(--brand);
+  color: #fff;
+  border-color: var(--brand);
+  filter: brightness(1.1);
+}
+/* Active state for the selected filter */
+.filter-chips .chip.active {
+  background: linear-gradient(90deg, var(--brand), var(--accent));
+  color: #001023;
+  border-color: var(--accent);
+}
+
 /* Certifications */
 .certs {
+  /* ... rest of the file is unchanged ... */
   display: grid;
   gap: 16px;
   grid-template-columns: repeat(3, 1fr);
@@ -231,6 +300,29 @@ textarea:invalid .note {
 .cert .meta {
   color: var(--muted);
   margin: 6px 0 0;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.project-card .description {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  min-height: 4.8em;
+  margin-bottom: 12px;
+}
+.project-card {
+  display: flex;
+  flex-direction: column;
 }
 
 /* Responsive */
@@ -258,6 +350,10 @@ textarea:invalid .note {
     display: none;
   }
   .nav.open ul {
+    position: absolute;
+    top: 60px;
+    right: var(--space);
+    left: var(--space);
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -265,6 +361,7 @@ textarea:invalid .note {
     padding: 10px;
     border-radius: 12px;
     border: 1px solid #202a3b;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
   }
   .certs {
     grid-template-columns: 1fr;

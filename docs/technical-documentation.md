@@ -2,51 +2,52 @@
 
 ## Tech Stack
 
-- **HTML5**: semantic structure for content
-- **CSS3**: variables, Flexbox, Grid, and media queries
-- **JavaScript (ES6)**: interactivity and progressive enhancement
+- **HTML5**: Semantic structure for content
+- **CSS3**: Variables, Flexbox, Grid, media queries, animations
+- **JavaScript (ES6+)**: DOM manipulation, Array methods (`.map()`, `.filter()`)
 
-## Components
+## Components & Features
 
-- **Header & Navigation**
+### Header & Navigation
 
-  - Sticky header with brand name
-  - Mobile nav toggle (accessible aria attributes)
-  - Theme toggle persisted in `localStorage`
+- Sticky header with brand name
+- Mobile nav toggle (accessible `aria-expanded` attributes)
+- Theme toggle persisted in `localStorage`
 
-- **Hero Section**
+### Hero Section
 
-  - Time-based greeting (morning/afternoon/evening)
-  - Tagline and CTA button
+- Time-based greeting (morning/afternoon/evening)
 
-- **About Section**
+### Projects Section (Dynamic & Interactive)
 
-  - Grid layout with profile image
-  - Short academic/professional intro
+- **Data Source**: A local JavaScript array named `projectsData` in `js/script.js`. This stores the title, description, image, link, and an array of `tags` (e.g., "Flutter", "Spring Boot") for each project.
+- **Interactive Filters (`js/initProjectFilters`)**:
+  1.  Click-event listeners are added to the filter buttons in the `#project-filters` container.
+  2.  When a button is clicked, its `data-filter` value (e.g., "Flutter") is retrieved.
+  3.  The `active` class is moved to the clicked button.
+  4.  The `loadProjectsFromData` function is called with the new filter value.
+- **Dynamic Content (`js/loadProjectsFromData`)**:
+  1.  This function receives a `filter` (defaulting to "All").
+  2.  It filters the `projectsData` array. If the filter is "All", it returns all projects. Otherwise, it returns only projects where the `tags` array includes the filter.
+  3.  It generates the HTML for the filtered projects using `.map()`.
+- **Empty State**: If the `filteredProjects` array is empty, it displays a "No projects found..." message.
 
-- **Projects Section**
+### Skills & Certifications
 
-  - Responsive card grid
-  - Private projects marked with lock icon
-  - Public projects link to GitHub repos
+- Static sections with responsive card and chip layouts.
 
-- **Skills Section**
+### Contact Section (Enhanced Validation)
 
-  - Chip-style skill list (technical & soft skills)
-  - Theme-aware styling
+- **Logic (`js/initContactForm`)**:
+  1.  The default `submit` event is prevented.
+  2.  If a field is invalid, a specific, inline error message is shown in the corresponding `.error-message` span.
+  3.  An `input` listener clears errors as the user types.
+- **Feedback**: A "Message sent" note is shown on successful submission.
 
-- **Certifications Section**
+### Footer
 
-  - Grid layout with issuer, description, and PDF link
-
-- **Contact Section**
-
-  - Accessible form with HTML5 validation
-  - Success note using `role="status"`
-
-- **Footer**
-  - Dynamic year rendering
-  - Back-to-top link
+- Dynamic year rendering
+- Back-to-top link
 
 ## Responsiveness
 
@@ -56,12 +57,12 @@
 ## Accessibility
 
 - Semantic landmarks: `<header>`, `<main>`, `<section>`, `<footer>`
-- Form labels bound to inputs
-- Live region (`role="status"`) for form feedback
-- Color contrast checked for light and dark themes
+- Form labels bound to inputs.
+- `aria-live="polite"` on inline form error messages.
+- `aria-expanded` on mobile navigation toggle.
+- `aria-label` on project links for better context.
 
 ## Known Limitations
 
-- No backend integration (contact form is client-only)
-- Placeholder images/logos used for some assets
-- Private projects not linked to source code
+- No backend integration (contact form is client-only).
+- Private projects not linked to source code.
