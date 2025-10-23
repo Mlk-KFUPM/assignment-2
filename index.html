@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Abdulmalik Alsafadi | Portfolio</title>
+    <meta
+      name="description"
+      content="Responsive personal portfolio. SWE assignment-1."
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="icon" href="assets/images/placeholder.png" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#top">Abdulmalik Alsafadi</a>
+      <nav class="nav" aria-label="Primary">
+        <button
+          id="navToggle"
+          class="nav-toggle"
+          aria-expanded="false"
+          aria-controls="navList"
+        >
+          Menu
+        </button>
+        <ul id="navList">
+          <li><a href="#about">About</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#certs">Certifications</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li>
+            <button
+              id="themeToggle"
+              class="btn btn-ghost"
+              type="button"
+              aria-label="Toggle theme"
+            >
+              🌗
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main id="top">
+      <section id="hero" class="hero">
+        <h1 id="greeting">Hello.</h1>
+      </section>
+
+      <section id="about" class="section">
+        <h2>About Me</h2>
+        <div class="about-grid">
+          <img
+            class="avatar"
+            src="assets/images/placeholder.png"
+            alt="Profile photo"
+          />
+          <p>
+            Junior Software Engineering student at KFUPM focused on practical
+            web development. I like turning requirements into small, reliable
+            products with clean UI and simple code. Current interests: front-end
+            systems, Spring Boot back ends, and automation.
+          </p>
+        </div>
+      </section>
+
+      <section id="projects" class="section">
+        <h2>Projects</h2>
+        <div class="cards">
+          <article class="card">
+            <img src="assets/images/hakeem.png" alt="Hakeem app preview" />
+            <h3>Hakeem (startup app)</h3>
+            <p>
+              Recipe and meal-planning app targeting KSA. Flutter front end,
+              Spring Boot API, and planned AI meal suggestions.
+            </p>
+            <p class="lock">🔒 Private access</p>
+          </article>
+          <article class="card">
+            <img
+              src="assets/images/trading-bot.png"
+              alt="Trading bot preview"
+            />
+            <h3>Algorithmic Trading Bot</h3>
+            <p>
+              Java/Spring service with risk controls and basic strategies.
+              Modular design for data ingestion and order routing.
+            </p>
+            <p class="lock">🔒 Private access</p>
+          </article>
+          <article class="card">
+            <img
+              src="assets/images/reservation-system.png"
+              alt="Reservation system (SWE-206 project)"
+            />
+            <h3>Reservation system</h3>
+            <p>
+              A course project focused on requirements engineering and system
+              design. Built with Spring Boot, MySQL, and React to manage
+              facility reservations through a responsive web interface.
+            </p>
+            <a
+              class="link"
+              href="https://github.com/Mlk-KFUPM/ReservationSystem"
+              aria-disabled="true"
+              >Click here to go to the backend repository</a
+            >
+          </article>
+          <article class="card">
+            <img
+              src="assets/images/tournament-management.png"
+              alt="Tournament Management (ICS-321 project)"
+            />
+            <h3>Tournament Management</h3>
+            <p>
+              A database-focused project for managing tournaments. Implemented
+              with PostgreSQL, a Spring Boot backend, and a Flutter front end
+              for cross-platform access.
+            </p>
+            <a
+              class="link"
+              href="https://github.com/Mlk-KFUPM/tournament"
+              aria-disabled="true"
+              >Click here to go to the backend repository</a
+            >
+          </article>
+        </div>
+      </section>
+      <section id="skills" class="section">
+        <h2>Skills</h2>
+        <ul class="chips">
+          <li>Problem Solving</li>
+          <li>Critical Thinking</li>
+          <li>Java</li>
+          <li>Spring Boot</li>
+          <li>REST APIs</li>
+          <li>SQL</li>
+          <li>Database Systems</li>
+          <li>HTML</li>
+          <li>CSS</li>
+          <li>JavaScript</li>
+          <li>React.js</li>
+          <li>Flutter</li>
+          <li>Dart</li>
+          <li>User Authentication</li>
+          <li>Application Programming Interfaces (API)</li>
+          <li>Back-End Web Development</li>
+          <li>Software Testing</li>
+          <li>Git & GitHub</li>
+          <li>Web Development</li>
+        </ul>
+      </section>
+
+      <section id="certs" class="section">
+        <h2>Certifications</h2>
+        <div class="certs">
+          <article class="card cert">
+            <div class="cert-head">
+              <div>
+                <h3>Flutter & Dart – The Complete Guide</h3>
+                <p class="issuer">Udemy • Issued Jun 2025</p>
+              </div>
+            </div>
+            <p class="meta">
+              Skills: Problem Solving, User Authentication, Flutter
+            </p>
+            <p>
+              <a
+                class="link"
+                href="assets/certifications/flutter-dart-udemy.pdf"
+                target="_blank"
+                >View certificate (PDF)</a
+              >
+            </p>
+          </article>
+
+          <article class="card cert">
+            <div class="cert-head">
+              <div>
+                <h3>React 18 for Beginners</h3>
+                <p class="issuer">Code With Mosh • Issued Jun 2025</p>
+              </div>
+            </div>
+            <p class="meta">Skills: JavaScript, Problem Solving, React.js</p>
+            <p>
+              <a
+                class="link"
+                href="assets/certifications/react18-mosh.pdf"
+                target="_blank"
+                >View certificate (PDF)</a
+              >
+            </p>
+          </article>
+
+          <article class="card cert">
+            <div class="cert-head">
+              <div>
+                <h3>Nanodegree: Java Web Developer</h3>
+                <p class="issuer">Udacity • Issued Apr 2025</p>
+              </div>
+            </div>
+            <p class="meta">
+              Skills: SQL, Spring Boot, Testing, APIs, Back-End Web Development,
+              REST, Java
+            </p>
+            <p>
+              <a
+                class="link"
+                href="assets/certifications/java-webdev-udacity.pdf"
+                target="_blank"
+                >View certificate</a
+              >
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section id="contact" class="section">
+        <h2>Contact</h2>
+        <form id="contactForm" class="form" novalidate>
+          <label>
+            Name
+            <input
+              name="name"
+              type="text"
+              required
+              minlength="2"
+              placeholder="Your name"
+            />
+          </label>
+          <label>
+            Email
+            <input
+              name="email"
+              type="email"
+              required
+              placeholder="you@domain.tld"
+            />
+          </label>
+          <label>
+            Message
+            <textarea
+              name="message"
+              rows="5"
+              required
+              minlength="10"
+              placeholder="How can I help?"
+            ></textarea>
+          </label>
+          <button class="btn" type="submit">Send</button>
+          <p id="formNote" class="note" role="status" hidden>Message sent.</p>
+        </form>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>
+        &copy; <span id="year"></span> Abdulmalik Alsafadi •
+        <a href="#top" class="link">Back to top</a>
+      </p>
+    </footer>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>
